@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 267 75% 57%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 267 75% 57%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 267 75% 57%;
+
+    --radius: 0.75rem;
+
+    --sidebar: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 267 75% 57%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 267 75% 57%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(rgba(123, 58, 237, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-purple-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-600;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-md border border-purple-500/20 shadow-lg;
+  }
+
+  .neon-border {
+    @apply relative rounded-lg overflow-hidden;
+  }
+
+  .neon-border::before {
+    content: "";
+    @apply absolute inset-0 p-[1px] rounded-lg bg-neon-glow animate-gradient-shift;
+    background-size: 200% 200%;
+    z-index: -1;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+
+  .shimmer::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.2), transparent);
+    animation: shimmer 2s infinite linear;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, rgba(76, 29, 149, 0.9) 0%, rgba(124, 58, 237, 0.8) 100%);
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-purple-gradient;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.7);
+  }
+
+  .glow-box {
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+  }
+}
